@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mohd Numair Khan — Data & Business Intelligence Analyst portfolio.">
+<title>Mohd Numair Khan | Data & BI Analyst</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --ink:#10211d;
+  --ink2:#223934;
+  --muted:#60746e;
+  --bg:#f4f7f5;
+  --surface:#ffffff;
+  --soft:#eaf0ed;
+  --green:#175641;
+  --green2:#24745b;
+  --sage:#BFCFBE;
+  --line:#dbe5df;
+  --warn:#d59a28;
+  --bad:#c95a58;
+  --good:#2f8a68;
+  --shadow:0 18px 45px rgba(23,86,65,.10);
+  --radius:22px;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+}
+body.dark{
+  --ink:#f3f7f5;--ink2:#dce7e2;--muted:#a9bbb3;--bg:#0e1714;--surface:#14211d;
+  --soft:#1b2b25;--line:#294038;--shadow:0 18px 45px rgba(0,0,0,.25);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+.progress{position:fixed;z-index:100;top:0;left:0;height:3px;background:var(--green2);width:0}
+.nav{
+  position:sticky;top:0;z-index:90;border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px)
+}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-weight:900;letter-spacing:.02em}.logo b{color:var(--green2)}
+.links{display:flex;gap:25px;color:var(--muted);font-size:14px;font-weight:600}
+.links a{position:relative;padding:25px 0}
+.links a.active,.links a:hover{color:var(--green)}
+.links a.active:after{content:"";height:2px;background:var(--green);position:absolute;left:0;right:0;bottom:14px}
+.actions{display:flex;gap:8px}
+.iconbtn{
+  width:40px;height:40px;border:1px solid var(--line);background:var(--surface);
+  border-radius:12px;cursor:pointer;color:var(--ink)
+}
+.hero{padding:92px 0 70px}
+.herogrid{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green2);font-weight:850}
+h1{font-size:clamp(52px,7vw,86px);line-height:1.02;letter-spacing:-.05em;margin:12px 0 10px}
+.role{font-size:clamp(22px,2.7vw,32px);font-weight:750;color:var(--ink2);letter-spacing:-.02em}
+.lead{font-size:18px;color:var(--muted);max-width:760px;margin:18px 0 27px}
+.cta{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:27px}
+.btn{
+  border:1px solid var(--line);background:var(--surface);padding:12px 16px;border-radius:12px;
+  font-weight:750;font-size:14px;cursor:pointer;transition:.2s
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,86,65,.08)}
+.btn.primary{background:var(--green);color:white;border-color:var(--green)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);padding:7px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+.hero-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)
+}
+.paneltop{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.paneltop strong{font-size:14px}.dot{width:9px;height:9px;border-radius:50%;background:var(--good);display:inline-block;margin-right:7px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.metric{padding:17px;border-radius:16px;background:var(--soft);border:1px solid var(--line)}
+.metric strong{font-size:28px;display:block;letter-spacing:-.03em}.metric span{font-size:12px;color:var(--muted)}
+section{padding:82px 0}
+.sectionhead{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-bottom:28px}
+.sectionhead h2{font-size:40px;line-height:1.1;letter-spacing:-.035em;margin:7px 0 0}
+.sectionhead p{max-width:650px;color:var(--muted);margin:0}
+.filterbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.filter{
+  border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:9px 13px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px
+}
+.filter.active{background:var(--green);color:white;border-color:var(--green)}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+  box-shadow:0 8px 25px rgba(23,86,65,.05);transition:.25s;overflow:hidden
+}
+.project:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.project.hidden{display:none}
+.pnum{font-size:11px;color:var(--green2);font-weight:850;letter-spacing:.15em}
+.project h3{font-size:24px;line-height:1.2;letter-spacing:-.025em;margin:8px 0}
+.stack{font-size:12px;color:var(--muted);font-weight:750;margin-bottom:13px}
+.project>p{color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.tag{font-size:11px;background:var(--soft);border:1px solid var(--line);padding:6px 8px;border-radius:8px;color:var(--ink2)}
+.impact{padding:14px;border-radius:14px;background:color-mix(in srgb,var(--sage) 48%,var(--surface));font-weight:700;font-size:13px;margin:14px 0}
+.preview{
+  border:1px solid var(--line);background:var(--soft);border-radius:16px;padding:14px;margin-top:15px
+}
+.preview-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}
+.preview-head span{font-size:11px;color:var(--muted)} .preview-head b{font-size:12px}
+.mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mock-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px}
+.mock-card b{font-size:16px;display:block}.mock-card span{font-size:9px;color:var(--muted)}
+.mock-chart{height:72px;display:flex;align-items:end;gap:6px;padding-top:12px}
+.bar{flex:1;background:var(--green2);border-radius:5px 5px 2px 2px;min-width:10px}
+.bar.sage{background:var(--sage)}
+.legend{display:flex;gap:12px;margin-top:8px;font-size:9px;color:var(--muted)}
+.more{
+  width:100%;margin-top:15px;border:0;background:transparent;color:var(--green);font-weight:800;text-align:left;cursor:pointer;padding:0
+}
+.details{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--muted);font-size:14px}
+.details.open{max-height:460px;margin-top:12px}
+.aboutgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:25px}
+.card p{color:var(--muted)}
+.skillgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.skill{border:1px solid var(--line);background:var(--soft);border-radius:13px;padding:14px}
+.skill b{display:block;font-size:13px}.skill span{font-size:12px;color:var(--muted)}
+.timeline{display:grid;gap:13px}
+.job{display:grid;grid-template-columns:185px 1fr;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.when{font-size:13px;color:var(--green2);font-weight:850}.job h3{margin:0 0 3px;font-size:18px}.job p{margin:0;color:var(--muted)}
+.edu{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.educard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.eduyear{font-size:11px;color:var(--green2);font-weight:850}.educard h3{font-size:17px;margin:7px 0}.educard p{font-size:13px;color:var(--muted);margin:0}
+.contact{
+  padding:30px;border-radius:25px;background:var(--green);color:white;display:flex;justify-content:space-between;align-items:center;gap:20px
+}
+.contact p{color:#dfece6;margin:5px 0 0}
+.contact .btn{background:white;color:var(--green);border-color:white}
+footer{padding:30px 0 45px;color:var(--muted);font-size:12px}
+.reveal{opacity:0;transform:translateY(16px);transition:.55s ease}
+.reveal.show{opacity:1;transform:none}
+.notice{font-size:11px;color:var(--muted);margin-top:10px}
+@media(max-width:900px){
+  .links{display:none}.herogrid,.aboutgrid,.projects,.edu{grid-template-columns:1fr}.job{grid-template-columns:1fr}.hero{padding-top:65px}
+}
+@media(max-width:560px){
+  .wrap{width:min(var(--max),calc(100% - 24px))}.metrics,.skillgrid{grid-template-columns:1fr}.sectionhead{align-items:start;flex-direction:column}.mock-grid{grid-template-columns:1fr 1fr}.contact{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="nav">
+  <div class="wrap navin">
+    <div class="logo">NUMAIR<b>.</b></div>
+    <nav class="links">
+      <a href="#projects">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="actions"><button class="iconbtn" id="theme" aria-label="Toggle theme">◐</button></div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap herogrid">
+    <div class="reveal">
+      <div class="eyebrow">Data · BI · Analytics · Data Quality</div>
+      <h1>Mohd Numair Khan</h1>
+      <div class="role">Data & Business Intelligence Analyst</div>
+      <p class="lead">I design reliable reporting systems, data-quality controls and decision-ready dashboards that turn complex operational, ERP and sustainability data into clear business insight.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">Explore my work</a>
+        <a class="btn" href="Mohd_Numair_Khan_CV.pdf" target="_blank">View CV</a>
+        <a class="btn" href="mailto:mohdnumair11@gmail.com">Contact</a>
+        <a class="btn" href="https://www.linkedin.com/in/mohd-numair-khan-4b2994293" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </div>
+      <div style="margin:0 0 18px;font-size:13px;color:var(--muted);font-weight:700">4 complete case studies · Synthetic visuals · No confidential company data</div>
+      <div class="chips"><span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Databricks</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Excel</span></div>
+    </div>
+    <aside class="hero-panel reveal">
+      <div class="paneltop"><strong><span class="dot"></span>Selected experience</strong><span style="font-size:11px;color:var(--muted)">Portfolio overview</span></div>
+      <div class="metrics">
+        <div class="metric"><strong>400+</strong><span>global sites supported</span></div>
+        <div class="metric"><strong>500K+</strong><span>records analysed</span></div>
+        <div class="metric"><strong>20+</strong><span>KPI reports automated</span></div>
+        <div class="metric"><strong>30%</strong><span>manual effort reduced</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="projects">
+<div class="wrap">
+  <div class="sectionhead reveal">
+    <div><div class="eyebrow">Selected case studies</div><h2>Projects built around business problems</h2></div>
+    <p>Each case study focuses on the problem, analytical logic, solution design and business value. All dashboard previews below use synthetic demonstration data.</p>
+  </div>
+
+  <div class="filterbar reveal">
+    <button class="filter active" data-filter="all">All projects</button>
+    <button class="filter" data-filter="bi">Power BI</button>
+    <button class="filter" data-filter="quality">Data quality</button>
+    <button class="filter" data-filter="erp">ERP & operations</button>
+  </div>
+
+  <div class="projects">
+    <article class="project reveal" data-cat="bi quality">
+      <div class="pnum">PROJECT 01 · HERO CASE STUDY</div>
+      <h3>Environmental Reporting & Data Quality Platform</h3>
+      <div class="stack">Power BI · DAX · Power Query · Databricks · PySpark</div>
+      <p>Designed an integrated reporting approach for 400+ global sites, connecting reporting completeness, KPI monitoring and data-quality validation.</p>
+      <div class="tags"><span class="tag">Completeness</span><span class="tag">Traffic lights</span><span class="tag">Exception management</span><span class="tag">Risk scoring</span></div>
+      <div class="impact">Business value: faster identification and prioritization of reporting issues with less manual investigation.</div>
+      <div class="preview">
+        <div class="preview-head"><b>Synthetic portfolio preview</b><span>No corporate data</span></div>
+        <div class="mock-grid">
+          <div class="mock-card"><b>94%</b><span>Reporting completeness</span></div>
+          <div class="mock-card"><b>18</b><span>Sites requiring review</span></div>
+          <div class="mock-card"><b>7</b><span>High-risk anomalies</span></div>
+        </div>
+        <div class="mock-chart">
+          <div class="bar sage" style="height:42%"></div><div class="bar" style="height:72%"></div><div class="bar sage" style="height:55%"></div>
+          <div class="bar" style="height:86%"></div><div class="bar sage" style="height:66%"></div><div class="bar" style="height:92%"></div>
+          <div class="bar sage" style="height:76%"></div><div class="bar" style="height:95%"></div>
+        </div>
+        <div class="legend"><span>■ Monthly reporting quality</span><span>Illustrative values only</span></div>
+      </div>
+      <div class="cta" style="margin:14px 0 0"><a class="btn primary" href="case-study-data-quality.html">Open full case study</a></div>
+      <button class="more">Quick summary ↓</button>
+      <div class="details">
+        <p><b>Problem:</b> Reporting gaps, zero submissions, incomplete attributes and anomalies were difficult to identify consistently across a large reporting scope.</p>
+        <p><b>Solution:</b> Built validation logic to classify reporting status, surface exceptions, and connect global management views to site-level investigation.</p>
+        <p><b>Analytics:</b> Extended the concept with a Databricks/PySpark prototype for completeness, duplicates, missing values, statistical anomalies and site-level risk indicators.</p>
+      </div>
+    </article>
+
+    <article class="project reveal" data-cat="bi">
+      <div class="pnum">PROJECT 02</div>
+      <h3>CSRD Environmental Performance Dashboard</h3>
+      <div class="stack">Power BI · DAX · Power Query · KPI Modelling</div>
+      <p>Created structured environmental KPI views that make climate, energy, water, wastewater and waste performance easier to analyze across periods.</p>
+      <div class="tags"><span class="tag">CSRD</span><span class="tag">KPI modelling</span><span class="tag">Performance analysis</span><span class="tag">Management reporting</span></div>
+      <div class="impact">Business value: one structured reporting interface for navigating multiple environmental KPI families.</div>
+      <div class="preview">
+        <div class="preview-head"><b>Synthetic portfolio preview</b><span>Illustrative KPI view</span></div>
+        <div class="mock-grid">
+          <div class="mock-card"><b>-18.4%</b><span>CO₂e vs baseline</span></div>
+          <div class="mock-card"><b>72%</b><span>Renewable share</span></div>
+          <div class="mock-card"><b>-9.1%</b><span>Water intensity</span></div>
+        </div>
+        <div class="mock-chart">
+          <div class="bar sage" style="height:80%"></div><div class="bar sage" style="height:73%"></div><div class="bar" style="height:64%"></div>
+          <div class="bar" style="height:55%"></div><div class="bar" style="height:47%"></div><div class="bar" style="height:39%"></div>
+        </div>
+      </div>
+      <div class="cta" style="margin:14px 0 0"><a class="btn primary" href="case-study-csrd.html">Open full case study</a></div>
+      <button class="more">Quick summary ↓</button>
+      <div class="details">
+        <p><b>Problem:</b> Multiple reporting metrics needed a coherent structure for management analysis and year-over-year comparison.</p>
+        <p><b>Solution:</b> Modelled KPI metadata, DAX measures and interactive views to create a consistent reporting experience across several environmental topics.</p>
+      </div>
+    </article>
+
+    <article class="project reveal" data-cat="bi">
+      <div class="pnum">PROJECT 03</div>
+      <h3>Management Performance Commentary Dashboard</h3>
+      <div class="stack">Power BI · DAX · KPI Analytics · Management Reporting</div>
+      <p>Connected numerical KPI performance with executive commentary, status, drivers and challenges so decision-makers can understand the story behind the numbers.</p>
+      <div class="tags"><span class="tag">Executive reporting</span><span class="tag">Target status</span><span class="tag">Narrative insight</span><span class="tag">Decision support</span></div>
+      <div class="impact">Business value: translates KPI movement into concise, decision-ready management information.</div>
+      <div class="preview">
+        <div class="preview-head"><b>Synthetic portfolio preview</b><span>Fictional division data</span></div>
+        <div class="mock-grid">
+          <div class="mock-card"><b>-18.4%</b><span>Current performance</span></div>
+          <div class="mock-card"><b>-15.2%</b><span>Previous period</span></div>
+          <div class="mock-card"><b>On track</b><span>Performance status</span></div>
+        </div>
+        <div style="margin-top:9px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px;font-size:10px;color:var(--muted)">
+          <b style="color:var(--ink)">Key driver</b><br>Higher renewable electricity share and improved energy efficiency supported the positive trend.
+        </div>
+      </div>
+      <div class="cta" style="margin:14px 0 0"><a class="btn primary" href="case-study-commentary.html">Open full case study</a></div>
+      <button class="more">Quick summary ↓</button>
+      <div class="details">
+        <p><b>Problem:</b> KPI dashboards alone do not always explain why performance changed.</p>
+        <p><b>Solution:</b> Combined current value, previous value, target achievement, performance status, executive summary, commentary, key drivers and key challenges in one management interface.</p>
+      </div>
+    </article>
+
+    <article class="project reveal" data-cat="erp">
+      <div class="pnum">PROJECT 04</div>
+      <h3>ERP & Business Performance Analytics</h3>
+      <div class="stack">SQL · Excel · Power Query · VBA · KPI Reporting</div>
+      <p>Automated recurring sales, operations and financial KPI reporting using ERP data and structured validation workflows.</p>
+      <div class="tags"><span class="tag">SQL</span><span class="tag">ERP</span><span class="tag">Automation</span><span class="tag">Variance analysis</span></div>
+      <div class="impact">Result: 20+ KPI reports automated and manual reporting effort reduced by 30%.</div>
+      <div class="preview">
+        <div class="preview-head"><b>Synthetic portfolio preview</b><span>Recreated reporting concept</span></div>
+        <div class="mock-grid">
+          <div class="mock-card"><b>+8.6%</b><span>Sales variance</span></div>
+          <div class="mock-card"><b>96.4%</b><span>On-time reporting</span></div>
+          <div class="mock-card"><b>4</b><span>Exceptions to review</span></div>
+        </div>
+        <div class="mock-chart">
+          <div class="bar" style="height:52%"></div><div class="bar" style="height:65%"></div><div class="bar" style="height:59%"></div>
+          <div class="bar" style="height:76%"></div><div class="bar" style="height:84%"></div><div class="bar" style="height:91%"></div>
+        </div>
+      </div>
+      <div class="cta" style="margin:14px 0 0"><a class="btn primary" href="case-study-erp.html">Open full case study</a></div>
+      <button class="more">Quick summary ↓</button>
+      <div class="details">
+        <p><b>Problem:</b> Recurring KPI reporting involved repetitive Excel work and large ERP datasets that required consistent validation.</p>
+        <p><b>Solution:</b> Used SQL for querying and validation, then Power Query, PivotTables, XLOOKUP and VBA to automate recurring reporting tasks.</p>
+      </div>
+    </article>
+  </div>
+  <div class="notice">All project preview numbers and visuals are intentionally synthetic and are not copied from any employer system.</div>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap">
+  <div class="sectionhead reveal"><div><div class="eyebrow">Profile</div><h2>Analytical depth with business context</h2></div></div>
+  <div class="aboutgrid">
+    <div class="card reveal">
+      <p>I’m a Data and Business Intelligence Analyst with a quantitative background in Statistics and Operations Research and hands-on experience across operational, ERP and sustainability data.</p>
+      <p>My work spans the full reporting lifecycle: understanding business requirements, structuring data, creating analytical logic, validating data quality and turning results into clear dashboards and management insight.</p>
+      <p>I’m particularly interested in building solutions that are not only technically correct, but also easy for business users to understand and act on.</p>
+    </div>
+    <div class="card reveal">
+      <div class="skillgrid">
+        <div class="skill"><b>Business Intelligence</b><span>Power BI, DAX, Power Query, Tableau</span></div>
+        <div class="skill"><b>Data Analytics</b><span>SQL, Python, Pandas, NumPy, PySpark</span></div>
+        <div class="skill"><b>Data Quality</b><span>Validation, completeness, anomalies, risk scoring</span></div>
+        <div class="skill"><b>Business Analysis</b><span>Requirements, KPI definitions, testing, stakeholders</span></div>
+        <div class="skill"><b>Quantitative Methods</b><span>Statistics, regression, forecasting, optimization</span></div>
+        <div class="skill"><b>Enterprise Reporting</b><span>Excel, VBA, SAP S/4HANA, ERP data</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="experience">
+<div class="wrap">
+  <div class="sectionhead reveal">
+    <div><div class="eyebrow">Experience</div><h2>From business questions to reporting solutions</h2></div>
+    <p>A concise view of roles most relevant to data, BI, reporting and business analysis.</p>
+  </div>
+  <div class="timeline">
+    <div class="job reveal"><div class="when">2026 — Present</div><div><h3>Environmental Data Management Intern · Henkel</h3><p>Global environmental BI, reporting automation, CSRD analytics, data quality, fleet reporting and emissions plausibility analysis.</p></div></div>
+    <div class="job reveal"><div class="when">2025</div><div><h3>ERP & BI Reporting Intern · Godrej & Boyce</h3><p>SQL-based ERP analysis, KPI automation, reporting validation and operational performance analysis.</p></div></div>
+    <div class="job reveal"><div class="when">2019 — 2022</div><div><h3>Junior Business Analyst · Supply Chain & Operations</h3><p>Requirements gathering, SQL analysis, KPI development, process improvement, testing and reporting standardization.</p></div></div>
+  </div>
+</div>
+</section>
+
+<section id="education">
+<div class="wrap">
+  <div class="sectionhead reveal"><div><div class="eyebrow">Education</div><h2>Quantitative foundation</h2></div></div>
+  <div class="edu">
+    <div class="educard reveal"><div class="eduyear">2023 — Present</div><h3>M.Sc. Sustainable Resource Management</h3><p>Technical University of Munich · Germany</p></div>
+    <div class="educard reveal"><div class="eduyear">2016 — 2018</div><h3>M.Sc. (Hons.) Operations Research</h3><p>Aligarh Muslim University · India</p></div>
+    <div class="educard reveal"><div class="eduyear">2013 — 2016</div><h3>B.Sc. (Hons.) Statistics</h3><p>Aligarh Muslim University · India</p></div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap">
+  <div class="contact reveal">
+    <div><div class="eyebrow" style="color:#c8ded5">Contact</div><h2 style="margin:5px 0 0;font-size:34px">Let’s build something useful with data.</h2><p>Open to opportunities in Data Analytics, Business Intelligence and Data Quality.</p></div>
+    <div class="cta" style="margin:0"><a class="btn" href="mailto:mohdnumair11@gmail.com">Email me</a><a class="btn" href="Mohd_Numair_Khan_CV.pdf" target="_blank">View CV</a><a class="btn" href="https://www.linkedin.com/in/mohd-numair-khan-4b2994293" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Mohd Numair Khan · Data & Business Intelligence Portfolio</div></footer>
+
+<script>
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=((window.scrollY/h)*100)+'%';
+});
+
+document.getElementById('theme').addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+});
+
+const filters=document.querySelectorAll('.filter');
+const projects=document.querySelectorAll('.project');
+filters.forEach(btn=>btn.addEventListener('click',()=>{
+  filters.forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  const f=btn.dataset.filter;
+  projects.forEach(p=>{
+    const cats=p.dataset.cat.split(' ');
+    p.classList.toggle('hidden',f!=='all'&&!cats.includes(f));
+  });
+}));
+
+document.querySelectorAll('.more').forEach(btn=>btn.addEventListener('click',()=>{
+  const d=btn.nextElementSibling;
+  d.classList.toggle('open');
+  btn.textContent=d.classList.contains('open')?'Hide case study details ↑':'View case study details ↓';
+}));
+
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+const secs=[...document.querySelectorAll('main section[id]')];
+const navlinks=[...document.querySelectorAll('.links a')];
+window.addEventListener('scroll',()=>{
+  let current='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-150)current=s.id});
+  navlinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+});
+</script>
+</body>
+</html>

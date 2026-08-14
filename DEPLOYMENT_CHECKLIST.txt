@@ -1,0 +1,16 @@
+PORTFOLIO DEPLOYMENT CHECKLIST
+
+1. Open index.html locally and click through all four case studies.
+2. Confirm the CV opens correctly.
+3. Do not add real company screenshots or data.
+4. Add your LinkedIn URL when ready.
+5. Upload all files together to GitHub Pages, Netlify, or Vercel.
+6. Test on desktop and mobile after publishing.
+7. Use the portfolio link on:
+   - CV
+   - LinkedIn Featured section
+   - Job applications
+   - Email signature
+
+Suggested portfolio title:
+Mohd Numair Khan | Data & Business Intelligence Analyst

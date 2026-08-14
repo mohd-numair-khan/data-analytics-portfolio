@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study | CSRD Environmental Performance Dashboard</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --ink:#13231f;--muted:#64766f;--bg:#f6f8f6;--surface:#ffffff;--soft:#eef3ef;
+  --green:#175641;--green2:#2c765f;--sage:#BFCFBE;--line:#dce5df;--shadow:0 16px 44px rgba(23,86,65,.10);
+  --max:1120px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+nav{position:sticky;top:0;z-index:40;background:rgba(246,248,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{height:70px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900}.brand b{color:var(--green2)}
+.back{font-size:14px;font-weight:800;color:var(--green)}
+.hero{padding:86px 0 50px}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green2);font-weight:850}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.03;letter-spacing:-.045em;margin:12px 0 16px}
+.lead{font-size:20px;color:var(--muted);max-width:860px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{border:1px solid var(--line);background:var(--surface);padding:8px 11px;border-radius:999px;font-size:12px;color:var(--muted)}
+.note{margin-top:18px;background:#eaf0ec;border-left:4px solid var(--green);border-radius:12px;padding:14px 16px;font-size:13px;color:var(--muted)}
+section{padding:54px 0}
+.sectiontitle{font-size:34px;letter-spacing:-.035em;margin:0 0 8px}
+.sectionintro{color:var(--muted);max-width:800px;margin-bottom:20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 8px 24px rgba(23,86,65,.05)}
+.card h2,.card h3{margin-top:0;letter-spacing:-.02em}
+.card p,.card li{color:var(--muted)}
+.topic{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.topic b{display:block;margin-bottom:5px}
+.topic span{font-size:13px;color:var(--muted)}
+.arch{
+  background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)
+}
+.archrow{display:grid;grid-template-columns:1fr 44px 1fr 44px 1fr 44px 1fr;align-items:center;gap:8px}
+.box{background:var(--soft);border:1px solid var(--line);padding:16px;border-radius:14px;text-align:center;font-weight:800;font-size:13px}
+.arrow{text-align:center;color:var(--green2);font-size:20px}
+.dashboard{
+  background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)
+}
+.dbhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.dbhead small{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpi{background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:14px}
+.kpi b{display:block;font-size:21px}.kpi span{font-size:10px;color:var(--muted)}
+.matrix{margin-top:14px;width:100%;border-collapse:collapse;font-size:12px}
+.matrix th,.matrix td{padding:10px;border-bottom:1px solid var(--line);text-align:right}
+.matrix th:first-child,.matrix td:first-child{text-align:left}
+.matrix th{font-size:10px;text-transform:uppercase;color:var(--muted);letter-spacing:.07em}
+.pill{display:inline-block;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:800}
+.good{background:#e5f3ec;color:#25704f}.stable{background:#edf0ec;color:#5f6f69}.watch{background:#f7ecd9;color:#9c6c13}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.tab{border:1px solid var(--line);background:var(--soft);padding:8px 11px;border-radius:999px;font-size:11px;font-weight:800}
+.tab.active{background:var(--green);color:white;border-color:var(--green)}
+.impact{background:var(--green);color:white;border-radius:24px;padding:28px}
+.impact p{color:#dcebe5}
+.btn{display:inline-block;padding:11px 15px;border-radius:11px;border:1px solid var(--line);background:white;color:var(--green);font-weight:800;font-size:13px;margin-right:8px;margin-top:12px}
+footer{padding:34px 0 45px;color:var(--muted);font-size:12px}
+@media(max-width:850px){
+  .grid2,.grid3,.kpis{grid-template-columns:1fr 1fr}
+  .archrow{grid-template-columns:1fr}
+  .arrow{transform:rotate(90deg)}
+}
+@media(max-width:560px){
+  .wrap{width:min(var(--max),calc(100% - 24px))}
+  .grid2,.grid3,.kpis{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap navin">
+    <div class="brand">NUMAIR<b>.</b></div>
+    <a class="back" href="index.html#projects">← Back to portfolio</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Case Study 02 · CSRD · KPI Reporting</div>
+    <h1>CSRD Environmental Performance Dashboard</h1>
+    <p class="lead">A structured Power BI reporting concept that brings climate, energy, water, wastewater and waste KPIs into one consistent management view for period-based analysis.</p>
+    <div class="meta">
+      <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span>
+      <span class="chip">KPI Modelling</span><span class="chip">CSRD</span><span class="chip">Management Reporting</span>
+    </div>
+    <div class="note"><b>Confidentiality note:</b> this portfolio case study uses synthetic values and recreated visuals. No original corporate dashboard, site information or employer data is shown.</div>
+  </div>
+</header>
+
+<section>
+<div class="wrap">
+  <div class="grid2">
+    <div class="card">
+      <h2>The challenge</h2>
+      <p>Environmental reporting spans several KPI families with different units, calculations and reporting logic. Without a consistent structure, users can spend too much time navigating separate views and interpreting how metrics relate to one another.</p>
+    </div>
+    <div class="card">
+      <h2>The objective</h2>
+      <p>Create one coherent reporting interface where users can switch between environmental topics, compare periods, read values in the correct units and understand performance without rebuilding the report for every KPI family.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <h2 class="sectiontitle">Reporting scope</h2>
+  <p class="sectionintro">The dashboard concept organizes related disclosures into clear topic blocks rather than presenting all environmental KPIs in one crowded view.</p>
+  <div class="grid3">
+    <div class="topic"><b>Climate & GHG</b><span>Scope 1, Scope 2, reduction metrics and related performance indicators.</span></div>
+    <div class="topic"><b>Energy</b><span>Total energy consumption, fossil, renewable and related share metrics.</span></div>
+    <div class="topic"><b>Water & Wastewater</b><span>Withdrawal, consumption, reused/recycled water and wastewater discharge.</span></div>
+    <div class="topic"><b>Waste</b><span>Waste generation, hazardous/non-hazardous categories and disposal pathways.</span></div>
+    <div class="topic"><b>Period Comparison</b><span>Structured year and month analysis with consistent KPI presentation.</span></div>
+    <div class="topic"><b>Management View</b><span>Clear, concise presentation focused on decision-relevant trends and exceptions.</span></div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <h2 class="sectiontitle">Solution architecture</h2>
+  <p class="sectionintro">A metadata-driven structure helps separate source data, KPI logic, unit handling and user-facing reporting.</p>
+  <div class="arch">
+    <div class="archrow">
+      <div class="box">Environmental source data</div><div class="arrow">→</div>
+      <div class="box">Power Query transformation</div><div class="arrow">→</div>
+      <div class="box">DAX & KPI metadata</div><div class="arrow">→</div>
+      <div class="box">Interactive CSRD views</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <h2 class="sectiontitle">Synthetic dashboard preview</h2>
+  <p class="sectionintro">The visual below demonstrates the style of interaction and information hierarchy without reproducing any employer dashboard.</p>
+
+  <div class="dashboard">
+    <div class="dbhead"><b>Environmental Performance Overview</b><small>Synthetic demonstration data</small></div>
+    <div class="tabs">
+      <span class="tab active">Climate change</span>
+      <span class="tab">Energy</span>
+      <span class="tab">Water</span>
+      <span class="tab">Waste</span>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b>-18.4%</b><span>CO₂e vs baseline</span></div>
+      <div class="kpi"><b>72%</b><span>Renewable energy share</span></div>
+      <div class="kpi"><b>-9.1%</b><span>Water intensity</span></div>
+      <div class="kpi"><b>-6.8%</b><span>Waste intensity</span></div>
+    </div>
+
+    <table class="matrix">
+      <thead>
+        <tr><th>Disclosure KPI</th><th>Unit</th><th>2024</th><th>2025</th><th>2026 YTD</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Scope 1 & 2 emissions</td><td>tCO₂e</td><td>128,400</td><td>116,900</td><td>94,700</td><td><span class="pill good">Improving</span></td></tr>
+        <tr><td>Renewable electricity share</td><td>%</td><td>61.0</td><td>69.0</td><td>72.0</td><td><span class="pill good">Improving</span></td></tr>
+        <tr><td>Water consumption</td><td>m³</td><td>2.8M</td><td>2.6M</td><td>2.4M</td><td><span class="pill good">Improving</span></td></tr>
+        <tr><td>Total waste generated</td><td>t</td><td>43,800</td><td>42,100</td><td>41,900</td><td><span class="pill stable">Stable</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="grid2">
+    <div class="card">
+      <h2>KPI modelling</h2>
+      <p>The reporting logic uses structured KPI definitions so that different disclosures can be routed through consistent calculations while preserving the correct units and display rules.</p>
+      <p>This makes the dashboard easier to maintain as the number of metrics grows.</p>
+    </div>
+    <div class="card">
+      <h2>User experience</h2>
+      <p>Topic-based navigation reduces clutter. Instead of forcing users through one oversized matrix, each environmental block can be surfaced through clear controls while keeping the overall visual language consistent.</p>
+      <p>The result is a more readable and decision-friendly report.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <h2 class="sectiontitle">What I contributed</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Reporting design</h3>
+      <ul>
+        <li>Structured KPI blocks for climate, energy, water, wastewater and waste</li>
+        <li>Designed period-based comparison views</li>
+        <li>Improved readability through consistent units and KPI hierarchy</li>
+        <li>Created management-oriented navigation and layout</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Technical implementation</h3>
+      <ul>
+        <li>Power BI dashboard development</li>
+        <li>DAX calculation logic and KPI routing</li>
+        <li>Power Query transformations</li>
+        <li>Metadata-driven reporting structure</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="impact">
+    <div class="eyebrow" style="color:#c8ded5">Business value</div>
+    <h2 style="font-size:36px;margin:8px 0">One reporting structure for multiple environmental KPI families</h2>
+    <p>The value of the solution is the consistency it brings to environmental reporting. Users can navigate different KPI families through one coherent interface, reducing fragmentation and making performance trends easier to interpret.</p>
+    <a class="btn" href="index.html#projects">View other projects</a>
+    <a class="btn" href="Mohd_Numair_Khan_CV.pdf" target="_blank">View CV</a>
+  </div>
+</div>
+</section>
+
+<footer><div class="wrap">© 2026 Mohd Numair Khan · Portfolio case study</div></footer>
+</body>
+</html>

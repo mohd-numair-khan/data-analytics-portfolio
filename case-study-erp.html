@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Case Study | ERP & Business Performance Analytics</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{--ink:#13231f;--muted:#64766f;--bg:#f6f8f6;--surface:#fff;--soft:#eef3ef;--green:#175641;--green2:#2c765f;--sage:#BFCFBE;--line:#dce5df;--max:1120px;--shadow:0 16px 44px rgba(23,86,65,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}a{text-decoration:none;color:inherit}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+nav{position:sticky;top:0;z-index:40;background:rgba(246,248,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{height:70px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900}.brand b{color:var(--green2)}.back{color:var(--green);font-weight:800;font-size:14px}
+.hero{padding:86px 0 52px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green2);font-weight:850}h1{font-size:clamp(42px,6vw,72px);line-height:1.03;letter-spacing:-.045em;margin:12px 0 16px}.lead{font-size:20px;color:var(--muted);max-width:860px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.chip{border:1px solid var(--line);background:var(--surface);padding:8px 11px;border-radius:999px;color:var(--muted);font-size:12px}.note{margin-top:18px;background:#eaf0ec;border-left:4px solid var(--green);padding:14px 16px;border-radius:12px;color:var(--muted);font-size:13px}
+section{padding:54px 0}.sectiontitle{font-size:34px;letter-spacing:-.035em;margin:0 0 8px}.sectionintro{color:var(--muted);max-width:820px;margin-bottom:20px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 8px 24px rgba(23,86,65,.05)}.card h2,.card h3{margin-top:0}.card p,.card li{color:var(--muted)}
+.flow{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:center}.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px;text-align:center;font-size:12px;font-weight:800}.arrow{text-align:center;color:var(--green2);font-size:18px}
+.dashboard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)}.dbhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.dbhead small{color:var(--muted)}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:14px}.kpi b{display:block;font-size:22px}.kpi span{font-size:10px;color:var(--muted)}.bars{display:flex;gap:8px;align-items:end;height:150px;padding:20px 4px 0}.bar{flex:1;background:var(--green2);border-radius:7px 7px 2px 2px}.bar.alt{background:var(--sage)}.table{width:100%;border-collapse:collapse;margin-top:14px;font-size:12px}.table th,.table td{padding:10px;border-bottom:1px solid var(--line);text-align:right}.table th:first-child,.table td:first-child{text-align:left}.table th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.impact{background:var(--green);color:#fff;border-radius:24px;padding:28px}.impact p{color:#dcebe5}.btn{display:inline-block;padding:11px 15px;border-radius:11px;border:1px solid var(--line);background:#fff;color:var(--green);font-weight:800;font-size:13px;margin:12px 8px 0 0}
+footer{padding:34px 0 45px;color:var(--muted);font-size:12px}
+@media(max-width:850px){.grid2,.kpis{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}@media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 24px))}.grid2,.kpis{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap navin"><div class="brand">NUMAIR<b>.</b></div><a class="back" href="index.html#projects">← Back to portfolio</a></div></nav>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">Case Study 04 · ERP · Reporting Automation</div>
+<h1>ERP & Business Performance Analytics</h1>
+<p class="lead">A reporting automation case study showing how SQL, Excel, Power Query and VBA can turn recurring ERP extracts into reliable KPI reporting for sales, operations and business reviews.</p>
+<div class="meta"><span class="chip">SQL</span><span class="chip">Excel</span><span class="chip">Power Query</span><span class="chip">VBA</span><span class="chip">ERP</span><span class="chip">KPI Reporting</span></div>
+<div class="note"><b>Confidentiality note:</b> all values and visuals below are synthetic recreations. No company ERP extract, customer data or internal report is shown.</div>
+</div></header>
+
+<section><div class="wrap"><div class="grid2">
+<div class="card"><h2>The challenge</h2><p>Recurring weekly and monthly reporting can become time-consuming when large ERP extracts must be validated, reshaped and manually updated before business review meetings.</p></div>
+<div class="card"><h2>The objective</h2><p>Standardize the workflow from raw ERP data to validated KPI outputs, reduce repetitive manual work and improve consistency across recurring business reports.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2 class="sectiontitle">Automation workflow</h2><p class="sectionintro">The solution separates querying, validation, transformation and presentation into a repeatable reporting process.</p>
+<div class="flow"><div class="step">ERP extract</div><div class="arrow">→</div><div class="step">SQL validation</div><div class="arrow">→</div><div class="step">Power Query</div><div class="arrow">→</div><div class="step">KPI reporting</div></div>
+</div></section>
+
+<section><div class="wrap">
+<h2 class="sectiontitle">Synthetic business view</h2><p class="sectionintro">A recreated reporting view demonstrating the type of management output produced from a structured ERP reporting workflow.</p>
+<div class="dashboard">
+<div class="dbhead"><b>Business Performance Overview</b><small>Synthetic demonstration data</small></div>
+<div class="kpis">
+<div class="kpi"><b>+8.6%</b><span>Sales variance</span></div>
+<div class="kpi"><b>96.4%</b><span>On-time reporting</span></div>
+<div class="kpi"><b>4</b><span>Exceptions to review</span></div>
+<div class="kpi"><b>30%</b><span>Manual effort reduced</span></div>
+</div>
+<div class="grid2" style="margin-top:14px">
+<div>
+<div class="bars">
+<div class="bar alt" style="height:48%"></div><div class="bar" style="height:55%"></div><div class="bar alt" style="height:61%"></div><div class="bar" style="height:69%"></div><div class="bar alt" style="height:77%"></div><div class="bar" style="height:88%"></div>
+</div>
+</div>
+<div>
+<table class="table"><thead><tr><th>KPI</th><th>Actual</th><th>Plan</th><th>Variance</th></tr></thead>
+<tbody>
+<tr><td>Sales</td><td>12.6M</td><td>11.6M</td><td>+8.6%</td></tr>
+<tr><td>Orders</td><td>18,420</td><td>18,000</td><td>+2.3%</td></tr>
+<tr><td>Backlog</td><td>1,260</td><td>1,400</td><td>-10.0%</td></tr>
+<tr><td>Service level</td><td>96.4%</td><td>95.0%</td><td>+1.4pp</td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div></section>
+
+<section><div class="wrap"><div class="grid2">
+<div class="card"><h2>SQL & validation</h2><p>SQL was used to query and validate large ERP datasets before reporting. This reduced the risk of building KPI reports on inconsistent or incomplete extracts and made checks more repeatable.</p></div>
+<div class="card"><h2>Excel automation</h2><p>Power Query, PivotTables, XLOOKUP and VBA were used to reduce repetitive update steps and create a more standardized reporting process for weekly and monthly KPI reporting.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2 class="sectiontitle">What I contributed</h2>
+<div class="grid2">
+<div class="card"><h3>Business reporting</h3><ul><li>Built and automated 20+ recurring KPI reports</li><li>Analyzed sales and operational performance</li><li>Supported regular business review reporting</li><li>Standardized recurring reporting workflows</li></ul></div>
+<div class="card"><h3>Technical implementation</h3><ul><li>SQL querying and data validation</li><li>Power Query transformation</li><li>Advanced Excel formulas and PivotTables</li><li>VBA automation for recurring tasks</li></ul></div>
+</div>
+</div></section>
+
+<section><div class="wrap"><div class="impact">
+<div class="eyebrow" style="color:#c8ded5">Business value</div><h2 style="font-size:36px;margin:8px 0">More reliable reporting with less repetitive work</h2>
+<p>The reporting workflow improved consistency and reduced manual reporting effort by 30%, while giving business users a more dependable set of recurring KPI outputs.</p>
+<a class="btn" href="index.html#projects">View other projects</a><a class="btn" href="Mohd_Numair_Khan_CV.pdf" target="_blank">View CV</a>
+</div></div></section>
+<footer><div class="wrap">© 2026 Mohd Numair Khan · Portfolio case study</div></footer>
+</body></html>

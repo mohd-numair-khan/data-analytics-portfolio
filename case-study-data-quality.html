@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study | Environmental Reporting & Data Quality Platform</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --ink:#10211d;--muted:#61736d;--bg:#f4f7f5;--surface:#fff;--soft:#edf2ef;
+  --green:#175641;--green2:#24745b;--sage:#BFCFBE;--line:#dce5e0;--shadow:0 16px 40px rgba(23,86,65,.10);
+  --max:1120px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+nav{position:sticky;top:0;z-index:30;background:rgba(244,247,245,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:900}.brand b{color:var(--green2)}
+.back{font-size:14px;font-weight:800;color:var(--green)}
+.hero{padding:88px 0 55px}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green2);font-weight:850}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.03;letter-spacing:-.045em;margin:12px 0 16px}
+.lead{font-size:20px;color:var(--muted);max-width:850px}
+.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.chip{border:1px solid var(--line);background:var(--surface);padding:8px 11px;border-radius:999px;font-size:12px;color:var(--muted)}
+.note{margin-top:20px;background:#e9f0ec;border:1px solid var(--line);border-left:4px solid var(--green);padding:14px 16px;border-radius:12px;font-size:13px;color:var(--muted)}
+section{padding:54px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 8px 24px rgba(23,86,65,.05)}
+.card h2,.card h3{margin-top:0;letter-spacing:-.02em}
+.card p,.card li{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.kpi b{font-size:27px;display:block}.kpi span{font-size:12px;color:var(--muted)}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:center;margin-top:20px}
+.step{background:var(--surface);border:1px solid var(--line);padding:16px;border-radius:14px;text-align:center;font-size:13px;font-weight:800}
+.arrow{text-align:center;color:var(--green2);font-size:20px}
+.flow-row{display:contents}
+.mock{
+  background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)
+}
+.mocktop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.mocktop small{color:var(--muted)}
+.mockgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mini{background:var(--soft);border:1px solid var(--line);padding:14px;border-radius:13px}
+.mini b{font-size:21px;display:block}.mini span{font-size:10px;color:var(--muted)}
+.bars{display:flex;gap:8px;align-items:end;height:145px;padding-top:18px}
+.bar{flex:1;background:var(--green2);border-radius:7px 7px 2px 2px}
+.bar.alt{background:var(--sage)}
+.table{width:100%;border-collapse:collapse;margin-top:15px;font-size:13px}
+.table th,.table td{padding:11px;border-bottom:1px solid var(--line);text-align:left}
+.table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.07em}
+.status{padding:5px 8px;border-radius:999px;font-size:11px;font-weight:800;display:inline-block}
+.low{background:#e5f3ec;color:#25704f}.med{background:#f8efd9;color:#9a6d11}.high{background:#f7e3e2;color:#a44743}
+.sectiontitle{font-size:34px;letter-spacing:-.035em;margin:0 0 8px}
+.sectionintro{color:var(--muted);max-width:800px}
+.impact{background:var(--green);color:white;border-radius:24px;padding:28px}
+.impact p{color:#dbeae4}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{padding:11px 15px;border-radius:11px;border:1px solid var(--line);background:white;font-weight:800;font-size:13px}
+.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}
+footer{padding:34px 0 45px;color:var(--muted);font-size:12px}
+@media(max-width:850px){
+  .grid2,.kpis,.mockgrid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.flow-row{display:block}.arrow{transform:rotate(90deg)}
+}
+@media(max-width:560px){
+  .wrap{width:min(var(--max),calc(100% - 24px))}.grid2,.kpis,.mockgrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap navin">
+    <div class="brand">NUMAIR<b>.</b></div>
+    <a class="back" href="index.html#projects">← Back to portfolio</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Case Study 01 · Data Quality · Business Intelligence</div>
+    <h1>Environmental Reporting & Data Quality Platform</h1>
+    <p class="lead">A reporting and data-quality concept designed to help users identify missing, incomplete, zero-reported and anomalous environmental submissions across a large global reporting scope.</p>
+    <div class="meta">
+      <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span>
+      <span class="chip">Databricks</span><span class="chip">PySpark</span><span class="chip">Data Quality</span>
+    </div>
+    <div class="note"><b>Confidentiality note:</b> this case study is a recreated portfolio demonstration. All site names, values and dashboard visuals are synthetic. The analytical concepts reflect the type of work described in my professional experience, but no employer data is shown.</div>
+  </div>
+</header>
+
+<section>
+<div class="wrap">
+  <div class="grid2">
+    <div class="card">
+      <h2>The challenge</h2>
+      <p>Large-scale environmental reporting can generate thousands of monthly submissions across many sites and KPIs. Manual review makes it difficult to consistently identify which reporting issues need attention first.</p>
+      <ul>
+        <li>Missing monthly submissions</li>
+        <li>Explicit zero reporting</li>
+        <li>Incomplete required attributes</li>
+        <li>Potentially inconsistent values</li>
+        <li>Duplicate or anomalous records</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>The objective</h2>
+      <p>Create one structured reporting approach that connects global monitoring with site-level investigation, so users can quickly move from “Where is the problem?” to “What exactly needs to be reviewed?”</p>
+      <p>The concept combines rule-based validation in Power BI with a scalable statistical data-quality prototype in Databricks.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <h2 class="sectiontitle">Solution architecture</h2>
+  <p class="sectionintro">The analytical workflow separates raw reporting, validation logic, quality scoring and business-facing reporting so each layer has a clear purpose.</p>
+  <div class="flow">
+    <div class="step">Raw reporting data</div><div class="arrow">→</div>
+    <div class="step">Validation rules</div><div class="arrow">→</div>
+    <div class="step">Status classification</div><div class="arrow">→</div>
+    <div class="step">Risk & anomaly checks</div><div class="arrow">→</div>
+    <div class="step">Power BI monitoring</div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <h2 class="sectiontitle">Synthetic management view</h2>
+  <p class="sectionintro">This mockup demonstrates how the portfolio version can communicate reporting quality without exposing any original corporate dashboards.</p>
+
+  <div class="kpis">
+    <div class="kpi"><b>94%</b><span>Reporting completeness</span></div>
+    <div class="kpi"><b>18</b><span>Sites requiring review</span></div>
+    <div class="kpi"><b>7</b><span>High-risk anomalies</span></div>
+    <div class="kpi"><b>96.8</b><span>Average quality score</span></div>
+  </div>
+
+  <div class="grid2" style="margin-top:18px">
+    <div class="mock">
+      <div class="mocktop"><b>Monthly quality trend</b><small>Synthetic values</small></div>
+      <div class="bars">
+        <div class="bar alt" style="height:54%"></div><div class="bar" style="height:62%"></div>
+        <div class="bar alt" style="height:68%"></div><div class="bar" style="height:74%"></div>
+        <div class="bar alt" style="height:70%"></div><div class="bar" style="height:82%"></div>
+        <div class="bar alt" style="height:86%"></div><div class="bar" style="height:91%"></div>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="mocktop"><b>Exception summary</b><small>Illustrative categories</small></div>
+      <div class="mockgrid">
+        <div class="mini"><b>11</b><span>Missing submissions</span></div>
+        <div class="mini"><b>5</b><span>Incomplete records</span></div>
+        <div class="mini"><b>2</b><span>Duplicate records</span></div>
+      </div>
+      <table class="table">
+        <thead><tr><th>Site</th><th>Quality score</th><th>Risk</th></tr></thead>
+        <tbody>
+          <tr><td>Site 004</td><td>98</td><td><span class="status low">Low</span></td></tr>
+          <tr><td>Site 011</td><td>79</td><td><span class="status med">Medium</span></td></tr>
+          <tr><td>Site 018</td><td>54</td><td><span class="status high">High</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="grid2">
+    <div class="card">
+      <h2>Rule-based validation</h2>
+      <p>The Power BI layer focuses on operational reporting logic. Records can be classified into intuitive states such as reported, zero-reported, incomplete or missing so users can distinguish different types of reporting behaviour.</p>
+      <p>This helps avoid treating every exception in the same way.</p>
+    </div>
+    <div class="card">
+      <h2>Statistical data-quality prototype</h2>
+      <p>The Databricks/PySpark layer extends the concept beyond reporting completeness by adding missing-value checks, duplicate detection, statistical anomaly detection and risk scoring.</p>
+      <p>The result is a more scalable way to prioritize records or sites that deserve deeper investigation.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <h2 class="sectiontitle">What I contributed</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Business & reporting logic</h3>
+      <ul>
+        <li>Structured reporting completeness concepts</li>
+        <li>Defined exception categories and user-facing status logic</li>
+        <li>Designed management and operational views</li>
+        <li>Connected high-level KPIs with detailed site investigation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Technical implementation</h3>
+      <ul>
+        <li>Power BI dashboard development</li>
+        <li>DAX measures and Power Query transformations</li>
+        <li>Databricks/PySpark quality prototype</li>
+        <li>Statistical anomaly and risk-scoring concepts</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="impact">
+    <div class="eyebrow" style="color:#c9ded5">Business value</div>
+    <h2 style="font-size:36px;margin:8px 0">From manual checking to structured exception management</h2>
+    <p>The main value of the solution is not simply a dashboard. It is the ability to systematically identify, classify and prioritize reporting-quality issues so users can focus their time on the cases that actually require investigation.</p>
+    <div class="cta">
+      <a class="btn" href="index.html#projects">View other projects</a>
+      <a class="btn" href="Mohd_Numair_Khan_CV.pdf" target="_blank">View CV</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer><div class="wrap">© 2026 Mohd Numair Khan · Portfolio case study</div></footer>
+</body>
+</html>
