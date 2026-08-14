@@ -1,7 +1,7 @@
-Mohd Numair Khan — Data & Business Intelligence Portfolio
+# Mohd Numair Khan — Data & Business Intelligence Portfolio
 A portfolio of selected Data & BI projects focused on transforming complex operational, ERP and sustainability data into reliable reporting, actionable insights and decision-support solutions.
 Featured Projects
-Environmental Reporting & Data Quality Platform
+# Environmental Reporting & Data Quality Platform
 Power BI · DAX · Databricks · PySpark
 Reporting completeness, exception management, anomaly detection and data-quality monitoring.
 CSRD Environmental Performance Dashboard
